@@ -1,20 +1,20 @@
-
 #####
 import json
 import pprint
 import requests
-
+import pandas as pd
 ######
 
-
-"""json_data = None
+##### Reading the file with opan
+'''
+json_data = None
 with open("stop_areas.json", 'r') as f:
     data_api = f.read()
     sncf_data_json = json.loads(data_api)
 pprint.pprint(sncf_data_json)
-"""
+'''
 
-
+#### Adding a station with load and update (not the right format JSON)
 """
 new_area = {'Station': 'Republique', 'Departement': '75'}
 
@@ -50,20 +50,52 @@ https://stackoverflow.com/questions/2122604/what-is-an-endpoint
 
 #### Using request to load and read the API
 
-
-  
-# api-endpoint 
-
-
-# sending get request and saving the response as response object
 URL = "https://api.sncf.com/v1/coverage/sncf/stop_areas"
 headers = {"Authorization": "0157b284-3cc3-4799-a1ab-79dc2761d274"}
-request_url = requests.get(url= URL, headers=headers)
-print(request_url)
-print(request_url.json())
-"""sncf_data_json = json.loads(request_url)
+r = requests.get(url= URL, headers=headers)
+raw_data = json.loads(r.text)
 
-# extracting data in json format 
-sncf_data_json.json()
-  
- """
+
+
+areas = raw_data["stop_areas"]
+print(type(areas))
+
+area = areas[0]
+my_id_list = []
+
+for loop_area in areas:
+    if type(loop_area) == dict:
+        if "id" in loop_area.keys():
+            local_id = loop_area["id"]
+            my_id_list.append(local_id)
+
+print(my_id_list)
+
+
+
+#print("Unexpected format (dict expected):",
+# type(loop_Area))
+
+#print(type(area), area)
+
+#print(area.keys())
+
+#https://www.digitalocean.com/community/tutorials/getting-started-with-python-requests-get-requests
+
+
+'''
+### Passing from JSON to CSV the enpoints
+json_data = None
+json_file = 'stop_areas.json'  
+with open(json_file) as json_data:     
+  data = json.load(json_data)
+pprint.pprint(data)
+
+print(data.keys())
+
+
+with open('data', encoding='utf-8-sig') as f:
+    sncf_api_file = pd.read_json(f)
+my_csv = sncf_api_file.to_csv('data.csv', encoding='utf-8', index=False)
+sncf_csv = pd.read_csv("data.csv")
+'''
