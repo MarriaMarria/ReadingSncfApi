@@ -2,7 +2,7 @@
 import json
 import pprint
 import requests
-import pandas as pd
+import pandas as pd 
 ######
 
 ##### Reading the file with opan
@@ -28,26 +28,6 @@ with open('stop_areas.json', 'a') as f:
     
 """
 
-
-###### What's an Endpoint ?
-"""
-
-It's one end of a communication channel, 
-so often this would be represented as the URL of a server or service.
-
-
-
-An endpoint is the 'connection point' of a service, tool, or application accessed over a network. 
-In the world of software, any software application that is running and "listening" for connections uses an endpoint as the "front door."
-When you want to connect to the application/service/tool to 
-exchange data you connect to its endpoint
-
-
-https://stackoverflow.com/questions/2122604/what-is-an-endpoint
-"""
-
-
-
 #### Using request to load and read the API
 
 URL = "https://api.sncf.com/v1/coverage/sncf/stop_areas"
@@ -69,51 +49,67 @@ for loop_endpoint in link:
             my_enpoints_list.append(local_endpoint)
 
 #print(my_enpoints_list)
+#print(len(my_enpoints_list))
 
 # id
 areas = raw_data["stop_areas"]
 #print(areas)
-area = areas[0]
-my_id_list = []
 
+my_id = []
 for loop_area in areas:
     if type(loop_area) == dict:
         if "id" in loop_area.keys():
             local_id = loop_area["id"]
-            my_id_list.append(local_id)
-        else:
-            print("Missing key id")
-    else:
-        print(f"Unexpected format {type(loop_area)}")
-
-
+            my_id.append(local_id)
+        #else:
+            #print("Missing key id")
+    #else:
+        #print(f"Unexpected format {type(loop_area)}")
 #print(my_id_list)
+
 
 
 # name
 my_gare = []
+
 for loop_gare in areas:
     if type(loop_gare) == dict:
         if "label" in loop_gare.keys():
-            local_id = loop_gare["label"]
-            my_gare.append(local_id)
-        else:
-            print("Missing key label")
-    else:
-        print(f"Unexpected format {type(loop_gare)}")
+            local_gare = loop_gare["label"]
+            my_gare.append(local_gare)
+        #else:
+            #print("Missing key label")
+   #else:
+        #print(f"Unexpected format {type(loop_gare)}")
 
 print(my_gare)
 
-#def json_info(link, identification, name, coord):
-    
+
+my_coord = []
+
+for loop_coord in areas:
+    if type(loop_coord) == dict:
+        if "coord" in loop_coord.keys():
+            local_coord = loop_coord["coord"]
+            my_coord.append(local_coord)
+        #else:
+            #print("Missing key coord")
+    #else:
+        #print(f"Unexpected format {type(loop_coord)}")
+
+#print(my_coord)
 
 
-#print("Unexpected format (dict expected):",
-# type(loop_Area))
 
-#print(type(area), area)
+data = {'id':my_id, 'name':my_gare, 'coord':my_coord}
 
-#print(area.keys())
+info = pd.DataFrame(data)
+print(info)
+
+with open('my_gare.csv', 'w') as f:
+    info.to_csv(f, encoding='utf-8') 
+
+
 
 #https://www.digitalocean.com/community/tutorials/getting-started-with-python-requests-get-requests
 
@@ -128,9 +124,4 @@ pprint.pprint(data)
 
 print(data.keys())
 
-
-with open('data', encoding='utf-8-sig') as f:
-    sncf_api_file = pd.read_json(f)
-my_csv = sncf_api_file.to_csv('data.csv', encoding='utf-8', index=False)
-sncf_csv = pd.read_csv("data.csv")
 '''
