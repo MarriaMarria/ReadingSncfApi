@@ -54,11 +54,23 @@ URL = "https://api.sncf.com/v1/coverage/sncf/stop_areas"
 headers = {"Authorization": "0157b284-3cc3-4799-a1ab-79dc2761d274"}
 r = requests.get(url= URL, headers=headers)
 raw_data = json.loads(r.text)
+#pprint.pprint(raw_data)
 
+# Endpoints
+link = raw_data['links']
 
+my_enpoints_list = []
 
+for loop_endpoint in link:
+    if type(loop_endpoint) == dict:
+        if "href" in loop_endpoint.keys():
+            local_endpoint = loop_endpoint["href"]
+            my_enpoints_list.append(local_endpoint)
+
+#print(my_enpoints_list)
+
+# id
 areas = raw_data["stop_areas"]
-print(type(areas))
 
 area = areas[0]
 my_id_list = []
@@ -69,8 +81,12 @@ for loop_area in areas:
             local_id = loop_area["id"]
             my_id_list.append(local_id)
 
-print(my_id_list)
+#print(my_id_list)
 
+
+
+
+#print(type(raw_data['links'])) #list
 
 
 #print("Unexpected format (dict expected):",
