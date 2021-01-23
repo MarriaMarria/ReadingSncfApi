@@ -59,6 +59,7 @@ raw_data = json.loads(r.text)
 # Endpoints
 link = raw_data['links']
 
+
 my_enpoints_list = []
 
 for loop_endpoint in link:
@@ -71,7 +72,7 @@ for loop_endpoint in link:
 
 # id
 areas = raw_data["stop_areas"]
-
+#print(areas)
 area = areas[0]
 my_id_list = []
 
@@ -80,13 +81,31 @@ for loop_area in areas:
         if "id" in loop_area.keys():
             local_id = loop_area["id"]
             my_id_list.append(local_id)
+        else:
+            print("Missing key id")
+    else:
+        print(f"Unexpected format {type(loop_area)}")
+
 
 #print(my_id_list)
 
 
+# name
+my_gare = []
+for loop_gare in areas:
+    if type(loop_gare) == dict:
+        if "label" in loop_gare.keys():
+            local_id = loop_gare["label"]
+            my_gare.append(local_id)
+        else:
+            print("Missing key label")
+    else:
+        print(f"Unexpected format {type(loop_gare)}")
 
+print(my_gare)
 
-#print(type(raw_data['links'])) #list
+#def json_info(link, identification, name, coord):
+    
 
 
 #print("Unexpected format (dict expected):",
