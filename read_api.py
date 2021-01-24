@@ -29,10 +29,13 @@ with open('stop_areas.json', 'a') as f:
 """
 
 #### Using request to load and read the API
+#https://www.digitalocean.com/community/tutorials/getting-started-with-python-requests-get-requests
+
 
 URL = "https://api.sncf.com/v1/coverage/sncf/stop_areas"
-headers = {"Authorization": "0157b284-3cc3-4799-a1ab-79dc2761d274"}
+headers = {"Authorization": "318fcd11-c5f1-4180-8420-4994c3a5705e"}
 r = requests.get(url= URL, headers=headers)
+print(r.status_code)
 raw_data = json.loads(r.text)
 #pprint.pprint(raw_data)
 
@@ -82,7 +85,7 @@ for loop_gare in areas:
    #else:
         #print(f"Unexpected format {type(loop_gare)}")
 
-print(my_gare)
+#print(my_gare)
 
 
 my_coord = []
@@ -100,28 +103,46 @@ for loop_coord in areas:
 #print(my_coord)
 
 
-
+# CSV info station
 data = {'id':my_id, 'name':my_gare, 'coord':my_coord}
 
 info = pd.DataFrame(data)
-print(info)
+#print(info)
 
 with open('my_gare.csv', 'w') as f:
     info.to_csv(f, encoding='utf-8') 
 
 
+# CSV endpoints
+links = {'endpooints': my_enpoints_list }
+endpoint = pd.DataFrame(links)
+##print(endpoint)
 
-#https://www.digitalocean.com/community/tutorials/getting-started-with-python-requests-get-requests
+with open('my_links.csv', 'w') as f:
+    endpoint.to_csv(f, encoding='utf-8') 
 
 
-'''
-### Passing from JSON to CSV the enpoints
-json_data = None
-json_file = 'stop_areas.json'  
-with open(json_file) as json_data:     
-  data = json.load(json_data)
-pprint.pprint(data)
+# Request arrival and departure
 
-print(data.keys())
+# arrival
+arrivals = "https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:OCE:SA:87722025/arrivals"
+headers = {"Authorization": "318fcd11-c5f1-4180-8420-4994c3a5705e"}
 
-'''
+response_arrivals = requests.get(url= arrivals, headers= headers)
+#print(response_arrivals.status_code)
+data_arrival = json.loads(response_arrivals.text)
+
+# departure
+departures = "https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:OCE:SA:87686006/departures"
+response_departures = requests.get(url=departures, headers= headers)
+#print(response_departures.status_code)
+data_departure = json.loads(response_departures.text)
+
+# journey
+journey = "https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:OCE:SA:87686006&to=stop_area:OCE:SA:87722025"
+journay_json = requests.get(url=journey, headers= headers)
+print(journay_json.status_code)
+data_journey = json.loads(journay_json.text)
+pprint.pprint(data_journey)
+
+
