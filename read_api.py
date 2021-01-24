@@ -35,7 +35,7 @@ with open('stop_areas.json', 'a') as f:
 URL = "https://api.sncf.com/v1/coverage/sncf/stop_areas"
 headers = {"Authorization": "318fcd11-c5f1-4180-8420-4994c3a5705e"}
 r = requests.get(url= URL, headers=headers)
-print(r.status_code)
+#print(r.status_code)
 raw_data = json.loads(r.text)
 #pprint.pprint(raw_data)
 
@@ -103,6 +103,10 @@ for loop_coord in areas:
 #print(my_coord)
 
 
+
+
+
+
 # CSV info station
 data = {'id':my_id, 'name':my_gare, 'coord':my_coord}
 
@@ -120,6 +124,10 @@ endpoint = pd.DataFrame(links)
 
 with open('my_links.csv', 'w') as f:
     endpoint.to_csv(f, encoding='utf-8') 
+
+
+
+
 
 
 # Request arrival and departure
@@ -140,9 +148,38 @@ data_departure = json.loads(response_departures.text)
 
 # journey
 journey = "https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:OCE:SA:87686006&to=stop_area:OCE:SA:87722025"
-journay_json = requests.get(url=journey, headers= headers)
-print(journay_json.status_code)
-data_journey = json.loads(journay_json.text)
-pprint.pprint(data_journey)
+journey_json = requests.get(url=journey, headers= headers)
+#print(journay_json.status_code)
+data_journey = json.loads(journey_json.text)
+#pprint.pprint(data_journey)
 
 
+
+journeys = data_journey['journeys']
+#print(journeys) =list
+
+
+general = journeys[0]["sections"] #list
+#print(type(general)) #str
+
+section= general[0] #dict
+
+section["departure_date_time"]
+keys_of_section = ["from", "links", "arrival_date_time", "departure_date_time", "to", 
+"co2_emission", "duration", "type", "id", "mode"]
+
+
+arrival_time = []
+
+for loop_arrival in journeys:
+    print(len(loop_arrival['sections'])) #list #length = 3
+    for loop_section in loop_arrival['sections']:
+        arrival_time.append(loop_section["arrival_date_time"])
+#print("arrival date time of each section", arrival_time)
+
+departure_time = []
+
+for loop_departure in journeys:
+    print(len(loop_departure['sections'])) #list #length = 3
+    for loop_section in loop_departure['sections']:
+        departure_time.append(loop_section["arrival_date_time"])
