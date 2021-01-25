@@ -34,11 +34,11 @@ for key in journey.keys():
     print(type(journey[key]), key)
 
 <class 'str'> status
-<class 'dict'> distances : {'taxi': 0, 'car': 0, 'walking': 0, 'bike': 0, 'ridesharing': 0}
+<class 'dict'> distances : 
 <class 'list'> links
 <class 'list'> tags
 <class 'int'> nb_transfers
-<class 'dict'> durations : {'taxi': 0, 'walking': 0, 'car': 0, 'ridesharing': 0, 'bike': 0, 'total': 8220}
+<class 'dict'> durations : 
 <class 'str'> arrival_date_time
 <class 'list'> calendars
 <class 'str'> departure_date_time
@@ -49,8 +49,8 @@ for key in journey.keys():
 <class 'int'> duration
 <class 'list'> sections : liste avec des dictionnaires 
 
-            (<type 'dict'>, u'from')
-            (u'codes', <type 'list'>)
+                (<type 'dict'>, u'from')
+                (u'codes', <type 'list'>)
                 (u'name', <type 'unicode'>)
                 (u'links', <type 'list'>)
                 (u'coord', <type 'dict'>)
@@ -124,13 +124,32 @@ steps = (sections[1]['stop_date_times']) #liste
 nbr_stations = len(steps) - 2 #doesn't take departure and arrival station
 
 
-
+######### Finding the names of the differentes stations
 stop_list = []
 for i, stop in enumerate(steps):
     #print(type(stop))
-    print(stop["stop_point"]['label'], i)
+    #print(stop["stop_point"]['label'], i)
     if i != 0:
         stop_list.append(stop['stop_point']['label'])
 
-print(stop_list)
+print('name of station : ', stop_list)
 
+
+######### Duration time between station
+
+
+arrival_time = []
+for k, loop_arrival_time in enumerate(journeys): 
+    #print(type(loop_arrival_time), k) = dict
+        for loop_section in loop_arrival_time['sections']: #date_time of each section = gare
+            #print("arrival ==> ",loop_section["arrival_date_time"], k)            
+            arrival_time.append(loop_section["arrival_date_time"])
+print("arrival", arrival_time)
+
+departure_time = []
+for j, loop_departure_time in enumerate(journeys): 
+    #print(type(loop_departure_time), j) = dict
+        for loop_section in loop_departure_time['sections']: #date_time of each section = gare
+            #print("departure ",loop_section["departure_date_time"], j)            
+            departure_time.append(loop_section["departure_date_time"])
+print("departure", departure_time)
