@@ -3,6 +3,7 @@ import json
 import pprint
 import requests
 import pandas as pd 
+import operator
 ######
 
 ##### Reading the file with opan
@@ -56,7 +57,7 @@ for loop_endpoint in link:
 
 # id
 areas = raw_data["stop_areas"]
-#print(areas)
+#print('type of areas', type(areas))
 
 my_id = []
 for loop_area in areas:
@@ -106,7 +107,7 @@ for loop_coord in areas:
 
 
 
-
+############ Creating CSV
 # CSV info station
 data = {'id':my_id, 'name':my_gare, 'coord':my_coord}
 
@@ -125,7 +126,7 @@ endpoint = pd.DataFrame(links)
 with open('my_links.csv', 'w') as f:
     endpoint.to_csv(f, encoding='utf-8') 
 
-
+################
 
 
 
@@ -145,41 +146,3 @@ departures = "https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:OCE:SA:
 response_departures = requests.get(url=departures, headers= headers)
 #print(response_departures.status_code)
 data_departure = json.loads(response_departures.text)
-
-# journey
-journey = "https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:OCE:SA:87686006&to=stop_area:OCE:SA:87722025"
-journey_json = requests.get(url=journey, headers= headers)
-#print(journay_json.status_code)
-data_journey = json.loads(journey_json.text)
-#pprint.pprint(data_journey)
-
-
-
-journeys = data_journey['journeys']
-#print(journeys) =list
-
-
-general = journeys[0]["sections"] #list
-#print(type(general)) #str
-
-section= general[0] #dict
-
-section["departure_date_time"]
-keys_of_section = ["from", "links", "arrival_date_time", "departure_date_time", "to", 
-"co2_emission", "duration", "type", "id", "mode"]
-
-
-arrival_time = []
-
-for loop_arrival in journeys:
-    print(len(loop_arrival['sections'])) #list #length = 3
-    for loop_section in loop_arrival['sections']:
-        arrival_time.append(loop_section["arrival_date_time"])
-#print("arrival date time of each section", arrival_time)
-
-departure_time = []
-
-for loop_departure in journeys:
-    print(len(loop_departure['sections'])) #list #length = 3
-    for loop_section in loop_departure['sections']:
-        departure_time.append(loop_section["arrival_date_time"])
