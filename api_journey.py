@@ -16,45 +16,17 @@ data_journey = json.loads(journey_json.text)
 #pprint.pprint(data_journey)
 
 
-'''
-arrival_time = []
-
-for loop_arrival in journeys:
-    #print(len(loop_arrival['sections'])) #list #length = 3
-    for loop_section in loop_arrival['sections']:
-        arrival_time.append(loop_section["name"])
-print("arrival date time of each section", arrival_time)
-
-departure_time = []
-for loop_departure in journeys:
-    #print(len(loop_departure['sections'])) #list #length = 3
-    for loop_section in loop_departure['sections']:
-        departure_time.append(loop_section["departure_date_time"])
-#print("departure date time of each section", departure_time)
-
-#stop_time = map(lambda x,y: x - y, arrival_time, departure_time)
-#print(stop_time)
-
-
-journeys = data_journey['journeys']
-#pprin. pprint(journeys) #=list
-
-pprint.pprint(stations) #c'est une liste
-
-'''
 journeys = data_journey["journeys"]
 journey = journeys[0]
 
 #print(type(journey)) #dict
 ########
-sections = journey['sections'][0]
-#print(sections.keys())
 
-from_departure = sections['from']
+'''from_departure = sections['from']
 print(type(from_departure['embedded_type']))
 
 for key in from_departure.keys():
-    print(type(from_departure[key]), key)
+    print(type(from_departure[key]), key)'''
 
 ## definition of the type of all keys in section
 '''
@@ -78,11 +50,29 @@ for key in journey.keys():
 <class 'list'> sections : liste avec des dictionnaires 
 
             (<type 'dict'>, u'from')
-            (<type 'unicode'>, u'embedded_type')
-            (<type 'unicode'>, u'id')
-            (<type 'int'>, u'quality')
-            (<type 'dict'>, u'stop_area')
-            (<type 'unicode'>, u'name')
+            (u'codes', <type 'list'>)
+                (u'name', <type 'unicode'>)
+                (u'links', <type 'list'>)
+                (u'coord', <type 'dict'>)
+                (u'label', <type 'unicode'>)
+                (u'administrative_regions', <type 'list'>)
+                (u'timezone', <type 'unicode'>)
+                (u'id', <type 'unicode'>)
+                (<type 'unicode'>, u'embedded_type')
+                (<type 'unicode'>, u'id')
+                (<type 'int'>, u'quality')
+                (<type 'dict'>, u'stop_area')
+
+                        (u'name', <type 'unicode'>)
+                        (u'links', <type 'list'>)
+                        (u'coord', <type 'dict'>)
+                        (u'label', <type 'unicode'>)
+                        (u'administrative_regions', <type 'list'>)
+                        (u'timezone', <type 'unicode'>)
+                        (u'id', <type 'unicode'>)
+
+
+                (<type 'unicode'>, u'name') 
 
         (<type 'list'>, u'links')
         (<type 'unicode'>, u'arrival_date_time')
@@ -124,6 +114,23 @@ for names in journeys:
         print(names)
 #### save data in json file
 
-print(journey["sections"][0]['from']['name'])
+#### tree of key from to find where are the labels
+from_name = journey["sections"][0]['from']
+#pprint.pprint(from_name.keys())
 
+sections = journey['sections']
+#print(type(sections)) #list
+steps = (sections[1]['stop_date_times']) #liste
+nbr_stations = len(steps) - 2 #doesn't take departure and arrival station
+
+
+
+stop_list = []
+for i, stop in enumerate(steps):
+    #print(type(stop))
+    print(stop["stop_point"]['label'], i)
+    if i != 0:
+        stop_list.append(stop['stop_point']['label'])
+
+print(stop_list)
 
