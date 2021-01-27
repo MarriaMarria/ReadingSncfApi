@@ -4,7 +4,8 @@ import logging
 import pprint
 import requests
 import pandas as pd 
-import operator
+import datetime
+
 ######
 
 ##### Reading the file with opn
@@ -46,35 +47,36 @@ class ReadingSncfApi():
         self.URL = "https://api.sncf.com/v1/coverage/sncf/stop_areas"
         self.headers = {"Authorization": "318fcd11-c5f1-4180-8420-4994c3a5705e"}
         self.raw_data = None
+        self.name = None
         self.my_endpoints_list = []
         self.my_id_list = []
         self.my_list_station = []
         self.my_list_coord = []
+        self.url_paris_lyon = "https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:OCE:SA:87686006&to=stop_area:OCE:SA:87722025"
+        self.transfers_list = []
+        self.stop_list = []
+        self.stop_time = 0
         logging.info('Request api -- start')
     
-
-    
     def request_JSON(self):
-
-        
         try:
             r = requests.get(url= self.URL, headers=self.headers)
           
             #print(r.status_code)
             self.raw_data = json.loads(r.text)
+            #self.file_name = self.name + '.json'
             #print(type(raw_data))
             #pprint.pprint(raw_data)
-            with open("marwa_sncf.json", mode="w+", encoding='utf-8') as f:
+            with open("marwa_sncf.json", mode="w+") as f:
                 json.dump(r.json(), f, sort_keys=True, indent=4)
-        except:
+        except OSError:
             logging.info('Error: file not found, cannot access the file')
+            return self.raw_data
         
         logging.info('Request api -- end')
 
-        return self.raw_data
-
     def save_my_json(self):
-        self.my_log.info('saving json from api -- start')
+        logging.info('saving json from api -- start')
 
         try:
             with open("marwa_sncf.json") as file:   
@@ -97,8 +99,6 @@ class ReadingSncfApi():
                     self.my_log.info("Currently in endpoints, the key 'href' is missing in %s" %k)
             else:
                 self.my_log.info("Currently in endpoints, format is not a dict, check condition")
-        
-        
 
     def my_id(self):
         
@@ -114,7 +114,6 @@ class ReadingSncfApi():
             else:
                 logging.info("Currently in id, format is not a dict, check condition")
         
-
     def my_station_name(self):
         self.areas = self.raw_data["stop_areas"]
 
@@ -128,7 +127,6 @@ class ReadingSncfApi():
             else:
                 logging.info("Currently in station name, format is not a dict, check condition")
         
-
     def my_coord(self):
 
         areas = self.raw_data["stop_areas"]
@@ -142,8 +140,6 @@ class ReadingSncfApi():
                     logging.info("Currently in coord, the key 'href' is missing in %s" %k)
             else:
                 logging.info("Currently in coord format is not a dict, check condition")
-
-
    
     def csv_station(self):
 
@@ -155,9 +151,7 @@ class ReadingSncfApi():
         with open('my_gare.csv', 'w') as f:
             self.station_csv = info.to_csv(f, encoding='utf-8') 
 
-        
-
-    def create_csv_endpoints(self):
+    def csv_endpoints(self):
         # CSV endpoints
         links = {'endpoints': self.my_endpoints_list}
         endpoint = pd.DataFrame(links)
@@ -166,7 +160,57 @@ class ReadingSncfApi():
         with open('my_links.csv', 'w') as f:
             endpoint.to_csv(f, encoding='utf-8') 
 
-        ################
+    def request_api_paris_lyon(self):
+        # journey error status code logging + test
+        journey_json = requests.get(url=self.url_paris_lyon, headers= self.headers)
+        #print(journay_json.status_code)
+        self.data_journey = json.loads(journey_json.text)
+        #self.file_name = self.name + '.json'
+        with open('m_sncf.json', mode="w+") as f:
+            json.dump(journey_json.json(), f, sort_keys=True, indent=4)
+    
+
+    def nbr_of_train_change(self):
+        self.journeys = self.data_journey["journeys"]
+        for k, loop_transfers in enumerate(self.journeys):
+            if type(loop_transfers) == dict:
+                if "nb_transfers" in loop_transfers.keys():
+                    local_transfers = loop_transfers['nb_transfers']
+                    self.transfers_list.append(local_transfers)
+
+
+    
+    def collectiong_station_name(self):
+        self.journey = self.journeys[0]
+        self.journeys = self.data_journey["journeys"]
+        for names in self.journeys:
+            if "name" in names.keys():
+                print(names)
+        
+        #### tree of key from to find where are the labels
+        #from_name = self.journey["sections"][0]['from']
+        #pprint.pprint(from_name.keys())
+        
+        sections = self.journey['sections']
+        #print(type(sections)) #list
+        steps = (sections[1]['stop_date_times']) #liste
+        self.nbr_stations = len(steps) - 2 #doesn't take departure and arrival station
+        ######### Finding the names of the differentes stations
+        for i, stop in enumerate(steps):
+            #print(type(stop))
+            #print(stop["stop_point"]['label'], i)
+            if i != 0:
+                self.stop_list.append(stop['stop_point']['label'])
+            if "arrival_date_time" in stop.keys():
+                arrival = stop["arrival_date_time"]
+                self.format_arrival_time = datetime.datetime.strptime(arrival,"%Y%m%dT%H%M%S")
+
+
+            if "departure_date_time" in stop.keys():
+                departure = stop["departure_date_time"]
+                self.format_departure_time = datetime.datetime.strptime(departure,"%Y%m%dT%H%M%S")
+        
+            self.stop_time = self.format_departure_time - self.format_arrival_time
 
 
 
@@ -185,4 +229,10 @@ if __name__ == '__main__':
     my_class.my_coord()
    #print(my_class.my_list_coord) #print pour afficher valeur
     my_class.csv_station()
-    my_class.create_csv_endpoints()
+    my_class.csv_endpoints()
+    my_class.request_api_paris_lyon()
+    my_class.nbr_of_train_change()
+    #print(my_class.transfers_list)
+    my_class.collectiong_station_name()
+    print(my_class.stop_list)
+    print(my_class.stop_time)
