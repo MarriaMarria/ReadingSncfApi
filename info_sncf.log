@@ -1,0 +1,277 @@
+2021-02-01 07:43:55,290 - root -INFO - Request api -- start
+2021-02-01 07:43:55,290 - root -INFO - Request api -- start
+2021-02-01 07:43:55,440 - root -INFO - Request api -- end
+2021-02-01 07:43:55,441 - root -INFO - append endpoint to list : start
+2021-02-01 07:43:55,441 - root -INFO - append endpoint to list : end
+2021-02-01 07:43:55,441 - root -INFO - append id to list : start
+2021-02-01 07:43:55,441 - root -INFO - append id to list : end
+2021-02-01 07:43:55,441 - root -INFO - append station to list : start
+2021-02-01 07:43:55,441 - root -INFO - append station to list : end
+2021-02-01 07:43:55,441 - root -INFO - append coord to list : start
+2021-02-01 07:43:55,441 - root -INFO - append coord to list : start
+2021-02-01 07:43:55,441 - root -INFO - create station csv : start
+2021-02-01 07:43:55,448 - root -INFO - create station csv : end
+2021-02-01 07:43:55,448 - root -INFO - create endpoints csv : start
+2021-02-01 07:43:55,451 - root -INFO - create station csv : end
+2021-02-01 07:43:55,451 - root -INFO - request paris - lyon : start
+2021-02-01 07:43:55,656 - root -INFO - request paris - lyon : start
+2021-02-01 07:43:55,656 - root -INFO - saving json from api -- start
+2021-02-01 07:43:55,658 - root -INFO - saving json from api -- end
+2021-02-01 07:43:55,658 - root -INFO - append transfers to list : strat
+2021-02-01 07:43:55,658 - root -INFO - append transfers to list : end
+2021-02-01 07:45:41,059 - root -INFO - Request api -- start
+2021-02-01 07:45:41,223 - root -INFO - Request api -- end
+2021-02-01 07:45:41,224 - root -INFO - append coord to list : start
+2021-02-01 07:45:41,224 - root -INFO - append coord to list : start
+2021-02-01 07:45:41,224 - root -INFO - Request api -- start
+2021-02-01 07:45:41,340 - root -INFO - Request api -- end
+2021-02-01 07:45:41,341 - root -INFO - append endpoint to list : start
+2021-02-01 07:45:41,341 - root -INFO - append endpoint to list : end
+2021-02-01 07:45:41,341 - root -INFO - Request api -- start
+2021-02-01 07:45:41,451 - root -INFO - Request api -- end
+2021-02-01 07:45:41,451 - root -INFO - append id to list : start
+2021-02-01 07:45:41,451 - root -INFO - append id to list : end
+2021-02-01 07:45:41,452 - root -INFO - saving json from api -- start
+2021-02-01 07:45:41,453 - root -INFO - saving json from api -- end
+2021-02-01 07:45:41,453 - root -INFO - Request api -- start
+2021-02-01 07:45:41,562 - root -INFO - Request api -- end
+2021-02-01 07:45:41,563 - root -INFO - Request api -- start
+2021-02-01 07:45:41,676 - root -INFO - Request api -- end
+2021-02-01 07:45:41,676 - root -INFO - create endpoints csv : start
+2021-02-01 07:45:41,703 - root -INFO - create station csv : end
+2021-02-01 07:45:41,704 - root -INFO - Request api -- start
+2021-02-01 07:45:41,814 - root -INFO - Request api -- end
+2021-02-01 07:45:41,815 - root -INFO - create station csv : start
+2021-02-01 07:45:41,818 - root -INFO - create station csv : end
+2021-02-01 07:45:41,818 - root -INFO - request paris - lyon : start
+2021-02-01 07:45:42,010 - root -INFO - request paris - lyon : start
+2021-02-01 07:45:42,010 - root -INFO - saving json from api -- start
+2021-02-01 07:45:42,013 - root -INFO - saving json from api -- end
+2021-02-01 07:45:42,013 - root -INFO - Request api -- start
+2021-02-01 07:45:42,115 - root -INFO - Request api -- end
+2021-02-01 07:45:42,115 - root -INFO - append station to list : start
+2021-02-01 07:45:42,115 - root -INFO - append station to list : end
+2021-02-01 07:45:42,115 - root -INFO - request paris - lyon : start
+2021-02-01 07:45:42,372 - root -INFO - request paris - lyon : start
+2021-02-01 07:45:42,373 - root -INFO - append transfers to list : strat
+2021-02-01 07:45:42,373 - root -INFO - append transfers to list : end
+2021-02-01 07:47:00,479 - root -INFO - Request api -- start
+2021-02-01 07:47:00,626 - root -INFO - Request api -- end
+2021-02-01 07:47:00,626 - root -INFO - append coord to list : start
+2021-02-01 07:47:00,627 - root -INFO - append coord to list : start
+2021-02-01 07:47:00,627 - root -INFO - Request api -- start
+2021-02-01 07:47:00,750 - root -INFO - Request api -- end
+2021-02-01 07:47:00,751 - root -INFO - append endpoint to list : start
+2021-02-01 07:47:00,751 - root -INFO - append endpoint to list : end
+2021-02-01 07:47:00,751 - root -INFO - Request api -- start
+2021-02-01 07:47:00,851 - root -INFO - Request api -- end
+2021-02-01 07:47:00,851 - root -INFO - append id to list : start
+2021-02-01 07:47:00,851 - root -INFO - append id to list : end
+2021-02-01 07:47:00,851 - root -INFO - saving json from api -- start
+2021-02-01 07:47:00,852 - root -INFO - saving json from api -- end
+2021-02-01 07:47:00,852 - root -INFO - Request api -- start
+2021-02-01 07:47:00,957 - root -INFO - Request api -- end
+2021-02-01 07:47:00,958 - root -INFO - Request api -- start
+2021-02-01 07:47:01,064 - root -INFO - Request api -- end
+2021-02-01 07:47:01,064 - root -INFO - create endpoints csv : start
+2021-02-01 07:47:01,068 - root -INFO - create station csv : end
+2021-02-01 07:47:01,069 - root -INFO - Request api -- start
+2021-02-01 07:47:01,204 - root -INFO - Request api -- end
+2021-02-01 07:47:01,204 - root -INFO - create station csv : start
+2021-02-01 07:47:01,209 - root -INFO - create station csv : end
+2021-02-01 07:47:01,209 - root -INFO - request paris - lyon : start
+2021-02-01 07:47:01,417 - root -INFO - request paris - lyon : start
+2021-02-01 07:47:01,417 - root -INFO - saving json from api -- start
+2021-02-01 07:47:01,419 - root -INFO - saving json from api -- end
+2021-02-01 07:47:01,419 - root -INFO - Request api -- start
+2021-02-01 07:47:01,533 - root -INFO - Request api -- end
+2021-02-01 07:47:01,534 - root -INFO - append station to list : start
+2021-02-01 07:47:01,534 - root -INFO - append station to list : end
+2021-02-01 07:47:01,534 - root -INFO - request paris - lyon : start
+2021-02-01 07:47:01,738 - root -INFO - request paris - lyon : start
+2021-02-01 07:47:01,738 - root -INFO - append transfers to list : strat
+2021-02-01 07:47:01,738 - root -INFO - append transfers to list : end
+2021-02-01 07:47:51,694 - root -INFO - Request api -- start
+2021-02-01 07:47:51,831 - root -INFO - Request api -- end
+2021-02-01 07:47:51,831 - root -INFO - append coord to list : start
+2021-02-01 07:47:51,831 - root -INFO - append coord to list : start
+2021-02-01 07:47:51,831 - root -INFO - Request api -- start
+2021-02-01 07:47:51,959 - root -INFO - Request api -- end
+2021-02-01 07:47:51,960 - root -INFO - append endpoint to list : start
+2021-02-01 07:47:51,960 - root -INFO - append endpoint to list : end
+2021-02-01 07:47:51,961 - root -INFO - Request api -- start
+2021-02-01 07:47:52,077 - root -INFO - Request api -- end
+2021-02-01 07:47:52,078 - root -INFO - append id to list : start
+2021-02-01 07:47:52,078 - root -INFO - append id to list : end
+2021-02-01 07:47:52,078 - root -INFO - saving json from api -- start
+2021-02-01 07:47:52,080 - root -INFO - saving json from api -- end
+2021-02-01 07:47:52,080 - root -INFO - Request api -- start
+2021-02-01 07:47:52,201 - root -INFO - Request api -- end
+2021-02-01 07:47:52,202 - root -INFO - Request api -- start
+2021-02-01 07:47:52,318 - root -INFO - Request api -- end
+2021-02-01 07:47:52,318 - root -INFO - create endpoints csv : start
+2021-02-01 07:47:52,322 - root -INFO - create station csv : end
+2021-02-01 07:47:52,322 - root -INFO - Request api -- start
+2021-02-01 07:47:52,439 - root -INFO - Request api -- end
+2021-02-01 07:47:52,440 - root -INFO - create station csv : start
+2021-02-01 07:47:52,442 - root -INFO - create station csv : end
+2021-02-01 07:47:52,443 - root -INFO - request paris - lyon : start
+2021-02-01 07:47:52,649 - root -INFO - request paris - lyon : start
+2021-02-01 07:47:52,649 - root -INFO - saving json from api -- start
+2021-02-01 07:47:52,652 - root -INFO - saving json from api -- end
+2021-02-01 07:47:52,652 - root -INFO - Request api -- start
+2021-02-01 07:47:52,758 - root -INFO - Request api -- end
+2021-02-01 07:47:52,758 - root -INFO - append station to list : start
+2021-02-01 07:47:52,758 - root -INFO - append station to list : end
+2021-02-01 07:47:52,759 - root -INFO - request paris - lyon : start
+2021-02-01 07:47:52,982 - root -INFO - request paris - lyon : start
+2021-02-01 07:47:52,982 - root -INFO - append transfers to list : strat
+2021-02-01 07:47:52,982 - root -INFO - append transfers to list : end
+2021-02-01 07:51:45,307 - root -INFO - Request api -- start
+2021-02-01 07:51:45,668 - root -INFO - Request api -- end
+2021-02-01 07:51:45,668 - root -INFO - append coord to list : start
+2021-02-01 07:51:45,668 - root -INFO - append coord to list : start
+2021-02-01 07:51:45,669 - root -INFO - Request api -- start
+2021-02-01 07:51:45,920 - root -INFO - Request api -- end
+2021-02-01 07:51:45,921 - root -INFO - append endpoint to list : start
+2021-02-01 07:51:45,921 - root -INFO - append endpoint to list : end
+2021-02-01 07:51:45,921 - root -INFO - Request api -- start
+2021-02-01 07:51:46,062 - root -INFO - Request api -- end
+2021-02-01 07:51:46,062 - root -INFO - append id to list : start
+2021-02-01 07:51:46,062 - root -INFO - append id to list : end
+2021-02-01 07:51:46,062 - root -INFO - saving json from api -- start
+2021-02-01 07:51:46,064 - root -INFO - saving json from api -- end
+2021-02-01 07:51:46,064 - root -INFO - Request api -- start
+2021-02-01 07:51:46,190 - root -INFO - Request api -- end
+2021-02-01 07:51:46,191 - root -INFO - Request api -- start
+2021-02-01 07:51:46,314 - root -INFO - Request api -- end
+2021-02-01 07:51:46,314 - root -INFO - create endpoints csv : start
+2021-02-01 07:51:46,322 - root -INFO - create station csv : end
+2021-02-01 07:51:46,323 - root -INFO - Request api -- start
+2021-02-01 07:51:46,437 - root -INFO - Request api -- end
+2021-02-01 07:51:46,438 - root -INFO - create station csv : start
+2021-02-01 07:51:46,442 - root -INFO - create station csv : end
+2021-02-01 07:51:46,442 - root -INFO - request paris - lyon : start
+2021-02-01 07:51:46,674 - root -INFO - request paris - lyon : start
+2021-02-01 07:51:46,674 - root -INFO - saving json from api -- start
+2021-02-01 07:51:46,677 - root -INFO - saving json from api -- end
+2021-02-01 07:51:46,679 - root -INFO - Request api -- start
+2021-02-01 07:51:46,801 - root -INFO - Request api -- end
+2021-02-01 07:51:46,801 - root -INFO - append station to list : start
+2021-02-01 07:51:46,802 - root -INFO - append station to list : end
+2021-02-01 07:51:46,802 - root -INFO - request paris - lyon : start
+2021-02-01 07:51:46,995 - root -INFO - request paris - lyon : start
+2021-02-01 07:51:46,995 - root -INFO - append transfers to list : strat
+2021-02-01 07:51:46,995 - root -INFO - append transfers to list : end
+2021-02-01 07:52:25,012 - root -INFO - Request api -- start
+2021-02-01 07:52:25,159 - root -INFO - Request api -- end
+2021-02-01 07:52:25,159 - root -INFO - append coord to list : start
+2021-02-01 07:52:25,160 - root -INFO - append coord to list : start
+2021-02-01 07:52:25,160 - root -INFO - Request api -- start
+2021-02-01 07:52:25,285 - root -INFO - Request api -- end
+2021-02-01 07:52:25,285 - root -INFO - append endpoint to list : start
+2021-02-01 07:52:25,285 - root -INFO - append endpoint to list : end
+2021-02-01 07:52:25,286 - root -INFO - Request api -- start
+2021-02-01 07:52:25,411 - root -INFO - Request api -- end
+2021-02-01 07:52:25,412 - root -INFO - append id to list : start
+2021-02-01 07:52:25,412 - root -INFO - append id to list : end
+2021-02-01 07:52:25,412 - root -INFO - saving json from api -- start
+2021-02-01 07:52:25,414 - root -INFO - saving json from api -- end
+2021-02-01 07:52:25,414 - root -INFO - Request api -- start
+2021-02-01 07:52:25,523 - root -INFO - Request api -- end
+2021-02-01 07:52:25,524 - root -INFO - Request api -- start
+2021-02-01 07:52:25,634 - root -INFO - Request api -- end
+2021-02-01 07:52:25,635 - root -INFO - create endpoints csv : start
+2021-02-01 07:52:25,665 - root -INFO - create station csv : end
+2021-02-01 07:52:25,666 - root -INFO - Request api -- start
+2021-02-01 07:52:25,775 - root -INFO - Request api -- end
+2021-02-01 07:52:25,775 - root -INFO - create station csv : start
+2021-02-01 07:52:25,778 - root -INFO - create station csv : end
+2021-02-01 07:52:25,779 - root -INFO - request paris - lyon : start
+2021-02-01 07:52:26,121 - root -INFO - request paris - lyon : start
+2021-02-01 07:52:26,121 - root -INFO - saving json from api -- start
+2021-02-01 07:52:26,123 - root -INFO - saving json from api -- end
+2021-02-01 07:52:26,123 - root -INFO - Request api -- start
+2021-02-01 07:52:26,227 - root -INFO - Request api -- end
+2021-02-01 07:52:26,227 - root -INFO - append station to list : start
+2021-02-01 07:52:26,228 - root -INFO - append station to list : end
+2021-02-01 07:52:26,228 - root -INFO - request paris - lyon : start
+2021-02-01 07:52:26,423 - root -INFO - request paris - lyon : start
+2021-02-01 07:52:26,423 - root -INFO - append transfers to list : strat
+2021-02-01 07:52:26,423 - root -INFO - append transfers to list : end
+2021-02-01 07:54:46,580 - root -INFO - request paris - lyon : start
+2021-02-01 07:54:46,853 - root -INFO - request paris - lyon : start
+2021-02-01 07:54:46,864 - root -INFO - Request api -- start
+2021-02-01 07:54:46,969 - root -INFO - Request api -- end
+2021-02-01 07:54:46,969 - root -INFO - append coord to list : start
+2021-02-01 07:54:46,970 - root -INFO - append coord to list : start
+2021-02-01 07:54:46,970 - root -INFO - Request api -- start
+2021-02-01 07:54:47,083 - root -INFO - Request api -- end
+2021-02-01 07:54:47,084 - root -INFO - append endpoint to list : start
+2021-02-01 07:54:47,084 - root -INFO - append endpoint to list : end
+2021-02-01 07:54:47,084 - root -INFO - Request api -- start
+2021-02-01 07:54:47,188 - root -INFO - Request api -- end
+2021-02-01 07:54:47,189 - root -INFO - append id to list : start
+2021-02-01 07:54:47,189 - root -INFO - append id to list : end
+2021-02-01 07:54:47,189 - root -INFO - saving json from api -- start
+2021-02-01 07:54:47,191 - root -INFO - saving json from api -- end
+2021-02-01 07:54:47,191 - root -INFO - Request api -- start
+2021-02-01 07:54:47,305 - root -INFO - Request api -- end
+2021-02-01 07:54:47,306 - root -INFO - Request api -- start
+2021-02-01 07:54:47,435 - root -INFO - Request api -- end
+2021-02-01 07:54:47,436 - root -INFO - create endpoints csv : start
+2021-02-01 07:54:47,463 - root -INFO - create station csv : end
+2021-02-01 07:54:47,464 - root -INFO - Request api -- start
+2021-02-01 07:54:47,577 - root -INFO - Request api -- end
+2021-02-01 07:54:47,577 - root -INFO - create station csv : start
+2021-02-01 07:54:47,580 - root -INFO - create station csv : end
+2021-02-01 07:54:47,581 - root -INFO - request paris - lyon : start
+2021-02-01 07:54:47,830 - root -INFO - request paris - lyon : start
+2021-02-01 07:54:47,830 - root -INFO - saving json from api -- start
+2021-02-01 07:54:47,832 - root -INFO - saving json from api -- end
+2021-02-01 07:54:47,833 - root -INFO - Request api -- start
+2021-02-01 07:54:47,934 - root -INFO - Request api -- end
+2021-02-01 07:54:47,934 - root -INFO - append station to list : start
+2021-02-01 07:54:47,934 - root -INFO - append station to list : end
+2021-02-01 07:54:47,934 - root -INFO - request paris - lyon : start
+2021-02-01 07:54:48,123 - root -INFO - request paris - lyon : start
+2021-02-01 07:54:48,123 - root -INFO - append transfers to list : strat
+2021-02-01 07:54:48,123 - root -INFO - append transfers to list : end
+2021-02-01 07:59:56,818 - root -INFO - request paris - lyon : start
+2021-02-01 07:59:57,190 - root -INFO - request paris - lyon : start
+2021-02-01 07:59:57,202 - root -INFO - Request api -- start
+2021-02-01 07:59:57,335 - root -INFO - Request api -- end
+2021-02-01 07:59:57,335 - root -INFO - append coord to list : start
+2021-02-01 07:59:57,335 - root -INFO - append coord to list : start
+2021-02-01 07:59:57,336 - root -INFO - Request api -- start
+2021-02-01 07:59:57,458 - root -INFO - Request api -- end
+2021-02-01 07:59:57,458 - root -INFO - append endpoint to list : start
+2021-02-01 07:59:57,458 - root -INFO - append endpoint to list : end
+2021-02-01 07:59:57,459 - root -INFO - Request api -- start
+2021-02-01 07:59:57,579 - root -INFO - Request api -- end
+2021-02-01 07:59:57,579 - root -INFO - append id to list : start
+2021-02-01 07:59:57,579 - root -INFO - append id to list : end
+2021-02-01 07:59:57,579 - root -INFO - saving json from api -- start
+2021-02-01 07:59:57,581 - root -INFO - saving json from api -- end
+2021-02-01 07:59:57,581 - root -INFO - Request api -- start
+2021-02-01 07:59:57,688 - root -INFO - Request api -- end
+2021-02-01 07:59:57,688 - root -INFO - Request api -- start
+2021-02-01 07:59:57,803 - root -INFO - Request api -- end
+2021-02-01 07:59:57,803 - root -INFO - create endpoints csv : start
+2021-02-01 07:59:57,829 - root -INFO - create station csv : end
+2021-02-01 07:59:57,829 - root -INFO - Request api -- start
+2021-02-01 07:59:57,955 - root -INFO - Request api -- end
+2021-02-01 07:59:57,955 - root -INFO - create station csv : start
+2021-02-01 07:59:57,958 - root -INFO - create station csv : end
+2021-02-01 07:59:57,959 - root -INFO - request paris - lyon : start
+2021-02-01 07:59:58,151 - root -INFO - request paris - lyon : start
+2021-02-01 07:59:58,152 - root -INFO - saving json from api -- start
+2021-02-01 07:59:58,153 - root -INFO - saving json from api -- end
+2021-02-01 07:59:58,154 - root -INFO - Request api -- start
+2021-02-01 07:59:58,258 - root -INFO - Request api -- end
+2021-02-01 07:59:58,258 - root -INFO - append station to list : start
+2021-02-01 07:59:58,258 - root -INFO - append station to list : end
+2021-02-01 07:59:58,259 - root -INFO - request paris - lyon : start
+2021-02-01 07:59:58,501 - root -INFO - request paris - lyon : start
+2021-02-01 07:59:58,501 - root -INFO - append transfers to list : strat
+2021-02-01 07:59:58,501 - root -INFO - append transfers to list : end

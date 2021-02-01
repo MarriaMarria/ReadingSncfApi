@@ -3,21 +3,21 @@ import json
 import pprint
 import requests
 import pandas as pd 
-import operator
+import datetime
+from read_api import *
 ######
 
 headers = {"Authorization": "318fcd11-c5f1-4180-8420-4994c3a5705e"}
 
-# journey
-journey = "https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:OCE:SA:87686006&to=stop_area:OCE:SA:87722025"
-journey_json = requests.get(url=journey, headers= headers)
+
+
+# journey error status code logging + test
+journey_json = requests.get(url="https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:OCE:SA:87686006&to=stop_area:OCE:SA:87722025",
+headers= headers)
 #print(journay_json.status_code)
 data_journey = json.loads(journey_json.text)
-#pprint.pprint(data_journey)
-
-
-journeys = data_journey["journeys"]
-journey = journeys[0]
+pprint.pprint(data_journey)
+#return data_journey
 
 #print(type(journey)) #dict
 ########
@@ -132,24 +132,17 @@ for i, stop in enumerate(steps):
     if i != 0:
         stop_list.append(stop['stop_point']['label'])
 
-print('name of station : ', stop_list)
+    #print('name of station : ', stop_list)
 
 
-######### Duration time between station
+    if "arrival_date_time" in stop.keys():
+        arrival = stop["arrival_date_time"]
+        format_arrival_time = datetime.datetime.strptime(arrival,"%Y%m%dT%H%M%S")
 
 
-arrival_time = []
-for k, loop_arrival_time in enumerate(journeys): 
-    #print(type(loop_arrival_time), k) = dict
-        for loop_section in loop_arrival_time['sections']: #date_time of each section = gare
-            #print("arrival ==> ",loop_section["arrival_date_time"], k)            
-            arrival_time.append(loop_section["arrival_date_time"])
-print("arrival", arrival_time)
-
-departure_time = []
-for j, loop_departure_time in enumerate(journeys): 
-    #print(type(loop_departure_time), j) = dict
-        for loop_section in loop_departure_time['sections']: #date_time of each section = gare
-            #print("departure ",loop_section["departure_date_time"], j)            
-            departure_time.append(loop_section["departure_date_time"])
-print("departure", departure_time)
+    if "departure_date_time" in stop.keys():
+        departure = stop["departure_date_time"]
+        format_departure_time = datetime.datetime.strptime(departure,"%Y%m%dT%H%M%S")
+    
+    stop_time = format_departure_time - format_arrival_time
+    print(stop_time)
